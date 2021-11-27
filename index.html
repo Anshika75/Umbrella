@@ -1,0 +1,545 @@
+<!-----PLEASE PLEASE PLEASE.----->
+<!-------READ THESE LINES-------->
+
+<!--NOTE:
+•It will take 7 seconds to load
+•Click on sun icon for sunny day, rain icon for rainy day and umbrella icon to open and close the umbrella.-->
+
+
+<!-----I am very new to coding so this code may appear boring ---->
+<!------This is very simple --->
+<!-----No. of days i commited to this code = 3----->
+<!----My only aim to create this is self improvement---->
+<!----So please help me in my journey of self improvement by writing your opinions in comments---->
+<!----I am not afraid to face rude comments but yeah i want you all to be truthful please--->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="C:\Users\Anshika Thakur\Desktop\r\umbrella\selfumbrella.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Georama:wght@600&family=Permanent+Marker&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition:1s;
+}
+.main{
+    height: 100vh;
+    width: 100vw;
+    background-color: #92bad2;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+.main .circle{
+    height: 350px;
+    width: 350px;
+    border-radius: 50%;
+    background-color: #53789e;
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+    transform:translateY(-20%);
+    box-shadow:0 0 1vmin 1vmin #1114;
+}
+.circle .umbrella{
+    height: 250px;
+    width: 250px;
+    /* background-color: violet; */
+    transform: translateY(10%);
+    position: relative;
+    z-index: 10;
+}
+.circle .umbrellatop{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    /* transform: translate(-50%, -50%) scale(0.2, 1.5); */
+    transform: translate(-50%, -50%);
+    width: 240px;
+    height:110px;
+    border-radius: 200px 200px 0 0;
+    background-color: #ffffff;
+    box-shadow:inset 55px -10px #c75c5c, inset -55px -10px #c75c5c;
+    z-index:10;
+}
+.circle .umbrellatop .strip{
+    height:35px;
+    width: 99%;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    background-color:#ffffff;
+    box-shadow:inset 48px -10px #c75c5c, inset -46.5px -10px #c75c5c;
+    border-radius: 100px 100px 0 0;
+}
+.circle .umbrellatop .strip .sc{
+    height: 105%;
+    width: 100%;
+    /* background-color: #a8e0f1; */
+    background-color:#1e0b20;
+    border-radius: 200px 200px 0 0;
+    position: relative;
+    display: grid;
+    place-items: center;
+    transition:all 2s ease-in-out;
+}
+.circle .umbrellatop .strip .sc .mid{
+    height: 100%;
+    width: 15px;
+    background-color: #395877;
+    transform: translateX(1.55px);
+}
+.circle .umbrellatop .strip .sc:before{
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    transform: translate(-50%, 60%);
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #c75c5c 25%, #ffffff 25%, #ffffff 50%, #c75c5c 50%, #c75c5c 75%, #ffffff 75%, #ffffff 100%);
+    background-size: 100% 100%;
+    animation: sc 2s linear infinite;
+}
+.circle .umbrellatop .strip .sc:after{
+    position: absolute;
+    content: "";
+    bottom: 0;
+    right: 0;
+    transform: translate(50%, 60%);
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #c75c5c 25%, #ffffff 25%, #ffffff 50%, #c75c5c 50%, #c75c5c 75%, #ffffff 75%, #ffffff 100%);
+    background-size: 100% 100%;
+    animation: sc 2s linear infinite;
+}
+.circle .umbrella .toprod{
+    height: 30px;
+    width: 15px;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    background-color: #395877;
+    border-radius: 100px 100px 0 0;
+}
+.circle .umbrella .bottomrod{
+    height: 150px;
+    width: 15px;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    background-color: #395877;
+    border-radius: 0 0 100px 100px;
+    background: linear-gradient(180deg, #395877 80%, #fff 20%);
+    /* z-index: 1; */
+}
+.bottomrod:before {
+    content:"";
+    position: absolute;
+    border-left: 15px solid #fff;
+    border-bottom: 15px solid #fff;
+    border-right:15px solid transparent;
+    border-top:15px solid transparent;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    bottom:-25px;
+    right:0px;
+    transform: rotate(-45deg);
+}
+.circle .change{
+    height: 800px;
+    width: 400px;
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color:#fff3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    transition:all 2s ease-in-out;
+}
+.circle .change .changec{
+    height: 400px;
+    width: 100%;
+    background-color: #00f4;
+    border: 2px solid black;
+    overflow: hidden;
+}
+.circle .change .changec.day{
+    background-color: #a8e0f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+}
+.circle .change .changec.day .sub{
+    /* background-color: #0f03; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 150%;
+    z-index: 2;
+}
+.circle .change .changec.day .fa-cloud{
+    font-size: 3.5rem;
+    color: #f7fef6;
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    z-index: 2;
+}
+.circle .change .changec.day .sub:nth-child(1){
+    transform: translateX(20%);
+    animation: tran1 5s alternate-reverse infinite;
+    opacity: 0.4;
+}
+.circle .change .changec.day .sub:nth-child(2){
+    transform: translateX(-20%);
+    animation: tran2 5s alternate-reverse infinite;
+}
+.circle .change .changec.day .sub:nth-child(3){
+    transform: translateX(20%);
+    animation: tran1 5s .4s alternate-reverse infinite;
+}
+.circle .change .changec.day .sub:nth-child(4){
+    transform: translateX(-20%);
+    animation: tran2 5s .6s alternate-reverse infinite;
+}
+.circle .change .changec.day .sun{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    position: absolute;
+    top: 7%;
+    z-index:1;
+    left: 35%;
+    background-color: #ffdd00;
+    border: 10px solid #ffdd00;
+    box-shadow: 0 0 20px 15px #ffdd00;
+    /* -webkit-filter: blur(1px);
+    /* background-color: #ff4e00; */
+    /* background-image:linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%); */
+    /* background: radial-gradient(ellipse at center, #ff4e00 0%, #ec9f05 100%); */
+    /* animation: shine 5s alternate infinite; */
+    /* box-shadow: 0 0 50px 5px #ff4e00, 0 0 50px 5px #ec9f05,  0 0 50px 7px #ff4e00, 0 0 50px 7px #ec9f05 ; */
+}
+.circle .change .changec.rain{
+    background-color: #1e0b20;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.circle .change .changec.rain .sub{
+    /* background-color: #0f03; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 150%;
+    z-index: 2;
+}
+.circle .change .changec.rain .fa-tint{
+    font-size: 2rem;
+    color: #f7fef68c;
+    z-index: 2;
+}
+.circle .change .changec.rain .sub:nth-child(1) .fa-tint:nth-child(1){
+    animation: r1 2s linear infinite;
+}
+.circle .change .changec.rain .sub:nth-child(2) .fa-tint:nth-child(2){
+    animation: r1 2s linear infinite;
+}
+.circle .change .changec.rain .sub:nth-child(3) .fa-tint:nth-child(3){
+    animation: r1 2s linear infinite;
+}
+.circle .change .changec.rain .sub:nth-child(4) .fa-tint:nth-child(4){
+    animation: r1 2s linear infinite;
+}
+.circle .change .changec.rain .sub:nth-child(1) .fa-tint:nth-child(2){
+    animation: r1 2s linear infinite 2s;
+}
+.circle .change .changec.rain .sub:nth-child(2) .fa-tint:nth-child(3){
+    animation: r1 2s linear infinite 2s;
+}
+.circle .change .changec.rain .sub:nth-child(3) .fa-tint:nth-child(4){
+    animation: r1 2s linear infinite 2s;
+}
+.circle .change .changec.rain .sub:nth-child(4) .fa-tint:nth-child(1){
+    animation: r1 2s linear infinite 2s;
+}
+.circle .change .changec.rain .sub:nth-child(1) .fa-tint:nth-child(3){
+    animation: r1 2s linear infinite 3s;
+}
+.circle .change .changec.rain .sub:nth-child(2) .fa-tint:nth-child(4){
+    animation: r1 2s linear infinite 3s;
+}
+.circle .change .changec.rain .sub:nth-child(3) .fa-tint:nth-child(1){
+    animation: r1 2s linear infinite 3s;
+}
+.circle .change .changec.rain .sub:nth-child(4) .fa-tint:nth-child(2){
+    animation: r1 2s linear infinite 3s;
+}
+.circle .change .changec.rain .sub:nth-child(1) .fa-tint:nth-child(4){
+    animation: r1 2s linear infinite 3.5s;
+}
+.circle .change .changec.rain .sub:nth-child(2) .fa-tint:nth-child(1){
+    animation: r1 2s linear infinite 3.5s;
+}
+.circle .change .changec.rain .sub:nth-child(3) .fa-tint:nth-child(2){
+    animation: r1 2s linear infinite 3.5s;
+}
+.circle .change .changec.rain .sub:nth-child(4) .fa-tint:nth-child(3){
+    animation: r1 2s linear infinite 3.5s;
+}
+.main .controls{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    bottom: 50px;
+    left:50%;
+    transform: translateX(-50%);
+    width: 90%;
+}
+.main .controls .icon{
+    padding: 25px;  
+    font-size: 1.2rem;
+    font-weight: 900;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative; 
+    background-color: #395877;   
+    box-shadow:0 0 1vmin 1vmin #1112;
+}
+.main .controls .icon .over{
+    background-color: #c75c5c91;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    clip-path: circle(0% at 50% 50%);
+    transition: all 1s ease-in-out;
+}
+.main .controls .icon:hover .over{
+    clip-path: circle(100% at 50% 50%);
+    background-color: #c75c5c;
+}
+ .main .controls .icon:hover i{
+    color: #fff;
+    z-index:10;
+}
+.main .controls .icon i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #a8e0f1;
+    transition: all 1s ease-in-out;
+}
+@keyframes sc{
+    0%{
+        background: linear-gradient(90deg, #c75c5c 25%, #ffffff 25%, #ffffff 50%, #c75c5c 50%, #c75c5c 75%, #ffffff 75%, #ffffff 100%);        
+    }
+    100%{
+        background: linear-gradient(-90deg, #c75c5c 25%, #ffffff 25%, #ffffff 50%, #c75c5c 50%, #c75c5c 75%, #ffffff 75%, #ffffff 100%);
+    }
+}
+@keyframes tran1{
+    100%{
+        transform: translateX(-20%);
+    }
+}
+@keyframes tran2{
+    100%{
+        transform: translateX(20%);
+    }
+}
+@keyframes r1 {
+    0% {transform: translateY(-20px) rotate(15deg);}
+    100% {transform: translateY(450px) rotate(15deg);}
+}
+.load{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #333;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color:#ccc;
+    animation:load 1s 5s linear both;
+}
+.load .quote{
+    width:250px;
+    padding:10px;
+    text-align:center;
+    font-family:"Georama";
+}
+.load .loading{
+    font-family:"Permanent Marker";
+    letter-spacing:5px;
+    font-size:2rem;
+}
+
+@keyframes load{
+    100%{
+        display:none;
+        opacity:0;
+        z-index:-100;
+    }
+}
+</style>
+    <div class="load">
+        <div class="quote">"Sometimes you need to stand under an umbrella and other times you need to dance in the rain. <br> Life isn't about waiting for the strom to pass, it is learning to dance in the rain." </div>
+        <div class="loading">LOADING...</div>
+    </div>
+    <div class="main">
+        <div class="circle">
+            <div class="umbrella">
+                <div class="umbrellatop" id="ut">
+                    <div class="strip">
+                        <div class="sc" id="sc1"></div>
+                        <div class="sc" id="sc2">
+                            <div class="mid" id="m"></div>
+                        </div>
+                        <div class="sc" id="sc3"></div>
+                    </div>
+                </div>
+                <div class="toprod" id="tr"></div>
+                <div class="bottomrod"></div>
+            </div>
+            <div class="change" id="c">
+                <div class="changec rain" >
+                    <div class="sub">
+                        <i class="fas fa-tint"></i>
+                        <i class="fas fa-tint"></i>
+                        <i class="fas fa-tint"></i>
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <div class="sub">
+                        <i class="fas fa-tint"></i>
+                        <i class="fas fa-tint"></i>
+                        <i class="fas fa-tint"></i>
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <div class="sub">
+                        <i class="fas fa-tint"></i>
+                        <i class="fas fa-tint"></i>
+                        <i class="fas fa-tint"></i>
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <div class="sub">
+                        <i class="fas fa-tint"></i>
+                        <i class="fas fa-tint"></i>
+                        <i class="fas fa-tint"></i>
+                        <i class="fas fa-tint"></i>
+                    </div>
+                </div>
+                <div class="changec day">
+                    <div class="sub">
+                        <i class="fas fa-cloud"></i>
+                        <i class="fas fa-cloud"></i>
+                        <i class="fas fa-cloud"></i>
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="sub">
+                        <i class="fas fa-cloud"></i>
+                        <i class="fas fa-cloud"></i>
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="sub">
+                        <i class="fas fa-cloud"></i>
+                        <i class="fas fa-cloud"></i>
+                        <i class="fas fa-cloud"></i>
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="sub">
+                        <i class="fas fa-cloud"></i>
+                        <i class="fas fa-cloud"></i>
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="sun"></div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="controls">
+            <div class="icon" onclick="rain()">
+                <div class="over"></div>
+                <i class="fas fa-cloud-rain"></i>
+            </div>
+            <div class="icon" onclick="umbrella()">
+                <div class="over"></div>
+                <i class="fas fa-umbrella"></i>
+            </div>
+            <div class="icon" onclick="sun()">
+                <div class="over"></div>
+                <i class="fas fa-sun"></i>
+            </div>
+        </div>
+    </div>
+    <script>
+        var sc1 = document.getElementById("sc1");
+        var sc2 = document.getElementById("sc2");
+        var sc3 = document.getElementById("sc3");
+        var ut = document.getElementById("ut");
+        var c = document.getElementById("c");
+        var m = document.getElementById("m");
+        var tr = document.getElementById("tr");
+        let count = 0;
+
+        function rain(){
+            c.style.transform="translateX(-50%) translateY(0)";
+            sc1.style.backgroundColor = "#1e0b20";
+            sc2.style.backgroundColor = "#1e0b20";
+            sc3.style.backgroundColor = "#1e0b20";
+        }
+        function sun(){
+            c.style.transform="translateX(-50%) translateY(-400px)";
+            sc1.style.backgroundColor = "#a8e0f1";
+            sc2.style.backgroundColor = "#a8e0f1";
+            sc3.style.backgroundColor = "#a8e0f1";
+        }
+        ut.addEventListener("click", umbrella)
+        function umbrella(){
+            count = count + 1;
+            if(count%2 != 0){
+                ut.style.transform="translate(-50%, -50%) scale(0.2, 1.5)";
+                m.style.transform = "scale(4, 0.9) translateY(2px)";
+                tr.style.transform = "translate(-50%, -160%)";
+            }else{
+                ut.style.transform="translate(-50%, -50%) scale(1, 1)";
+                m.style.transform = "translateX(1.8px) scale(1,1)";
+                tr.style.transform = "translate(-50%, -80%)";
+            }
+        }
+    </script>
+</body>
+</html>
